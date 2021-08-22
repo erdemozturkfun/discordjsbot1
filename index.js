@@ -1,6 +1,6 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { token } = require('./config.json');
+const { token, clientId, guildId } = require('./config.json');
 const fs = require('fs');
 const wait = require('util').promisify(setTimeout);
 // require the needed discord.js classes
@@ -15,8 +15,6 @@ const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 // Place your client and guild ids here
-const clientId = '836878288542105600';
-const guildId = '878617052133326899';
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
